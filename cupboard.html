@@ -29,16 +29,16 @@
                 <div>
                     <p>To ensure members of the University of Michigan community—whether on a tight budget or physically restrained from getting to a grocery store—receive equitable access to healthy, nutritious, and nourishing food and the ability to prepare it for themselves or others.</p>
                 </div>
-                <div><img src="images/3.5-FSF-Blog-Image.jpg" alt="An assortment of vegetables"></div>
+                <div><img src="images/3.5-FSF-Blog-Image.jpg" alt="An assortment of vegetables" tabindex="0"></div>
         <div></div>
             </section>
             <section>
                 <h2>NEWS</h2>
                 <h3>FALL 2024 MOBILE DISTRIBUTION FOR NORTH CAMPUS</h3>
                 <div>U-M's Maize & Blue Cupboard (MBC), the College of Engineering, Student Life, and Ann Arbor-based Food Gatherers will host North Campus mobile food distributions to make MBC resources more accessible for North Campus residents.</div>
-                <div><img src="images/MCOMMONS-Thanksgiving2024-23.jpg" alt="UM food service worker working hard!"></div>
+                <div><img src="images/MCOMMONS-Thanksgiving2024-23.jpg" alt="UM food service worker working hard!" tabindex="0"></div>
             </section>
-            <section class="physical">
+            <section class="FAQ">
                 <h2>FAQ</h2>
                 <h3>WHO DO YOU HELP?</h3>
                 <p>Did you know over 30% of U-M students struggle with food insecurity in some way? We are here to help anyone with a valid U-M ID.</p>
@@ -54,11 +54,52 @@
                 <p>Appointments can be made to shop at a convenient time that works for your schedule. Visit the home page of the <a href="https://mbc.studentlife.umich.edu/">Maize and Blue Cupboard website</a> to find more information.</p>
             </section>
         </div>
+        <div class="full-screen" id="fullscreen-view" style="display: none;">
+            <img id="fullscreen-img">
+        </div>   
     </main>
     <footer>
-        <p>MSI Academic Advising | <a href="https://sites.google.com/umich.edu/msiacademicadvising/student-support-resources">UMSI Academic Advising </a></p>
-    </footer>
-    
+        <p>MSI Academic Advising | <a href="https://sites.google.com/umich.edu/msiacademicadvising/student-support-resources">UMSI Academic Advising</a> | <p>© Copyrights <span id="year"></span>. All rights reserved.</p>    </footer>
+    <script>
+        /* full screen image upon click feature */
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => {
+                const fullscreenView = document.getElementById('fullscreen-view');
+                const fullscreenImg = document.getElementById('fullscreen-img');
+                fullscreenImg.src = img.src;
+                fullscreenView.style.display = 'flex';
+            });
+        });
+
+        /* enter key functionality for fullscreen img feature */
+        document.querySelectorAll('img[tabindex]').forEach(img => {
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // prevent scroll on space
+                    const fullscreenView = document.getElementById('fullscreen-view');
+                    const fullscreenImg = document.getElementById('fullscreen-img');
+                    fullscreenImg.src = img.src;
+                    fullscreenView.style.display = 'flex';
+                }
+            });
+        });
+
+
+        document.getElementById('fullscreen-view').addEventListener('click', () => {
+            document.getElementById('fullscreen-view').style.display = 'none';
+        });
+        /* escape key to exit fullscreen photo functionality for keyboard only */
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const fullscreenView = document.getElementById('fullscreen-view');
+                fullscreenView.style.display = 'none';
+            }
+        });
+
+        /* update year */
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+    </script>
 </body>
 
 </html>

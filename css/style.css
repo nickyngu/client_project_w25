@@ -26,6 +26,11 @@ h2 {
     margin-bottom: 10px;
 }
 
+h3 {
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+
 p {
     font-size: 1rem;
     margin-bottom: 5px;
@@ -64,7 +69,13 @@ img {
 nav ul {
     display: flex;
     justify-content: space-around;
+    padding: 0;
     width: 100%;
+}
+
+nav ul li {
+    flex: 1;
+    text-align: center;
 }
 
 header nav {
@@ -74,20 +85,36 @@ header nav {
     flex-flow: row wrap;
     justify-content: space-between;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
-nav li a{
+/* nav li a{
     color: #FFFFFF;
     font-size: 1.2rem;
     padding: 10px;  
     text-decoration: none;
+} */
+
+nav li a {
+    display: block; /* Makes the whole area clickable */
+    padding: 20px; /* Add vertical space */
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 
+nav li a:hover {
+    background-color: #FFCB05;
+    border: 2px solid #00274C;
+    color: #00274C;
+    transition: 0.2s ease;
+}
+
+
 .active {
-    border: 2.5px white solid;
+    border: 2.5px #FFCB05 solid;
     color: #FFCB05;
+    font-weight: bold;
 }
 
 .intro {
@@ -113,17 +140,112 @@ nav li a{
 
 .grid section li {
     margin-left: 15px;
+    margin-bottom: 6px;
 }
 
 header h1 {
     padding: 8px;
 }
 
-.physical {
+.physical, .FAQ {
     grid-column: span 2;
 }
 
 .first-box {
     grid-column: span 2;
     text-align: center;
+}
+
+.full-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.full-screen img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+.not-found-container {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.not-found-title {
+    font-size: 3rem;
+    color: #00274C;
+    margin-bottom: 20px;
+}
+
+.not-found-suggestion {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.not-found-links {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.not-found-links li {
+    margin: 10px 0;
+}
+
+.not-found-links a {
+    color: #00274C;
+    text-decoration: underline;
+}
+
+.not-found-links a:hover {
+    color: #FFCB05;
+}
+
+img:focus {
+    outline: 3px solid #FFCB05;
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+/* desktop/laptop view */
+@media (min-width: 1000px) {
+    /*increasing font sizes for bigger screen*/
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    p, figcaption, li {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 20px;
+    }
+    /*resizing and realigning images*/
+    img {
+        display: flex;
+        align-self: center;
+        width: 70%;
+        margin: auto;
+    }
+    /* rearranging grid for bigger screen size */
+    .physical {
+        grid-column: span 1;
+    }
+    .FAQ {
+        grid-column: span 2;
+    }
 }

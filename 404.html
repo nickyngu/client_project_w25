@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="css/html5reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a class="skip" href="#main">Skip to Main Content</a>
+        <img class="umsi-logo" src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cupboard.html">Cupboard</a></li>
+                <li><a href="firstgen.html">First Gen</a></li>
+                <li><a href="CAPS.html">CAPS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" class="not-found-container">
+        <h1 class="not-found-title">Sorry, we couldn't find the page you're looking for.</h1>
+        <p class="not-found-suggestion">Were you looking for the:</p>
+        <ul class="not-found-links">
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="CAPS.html">Counseling & Psychological Services (CAPS)</a></li>
+            <li><a href="cupboard.html">Maize & Blue Cupboard</a></li>
+            <li><a href="firstgen.html">First Gen Portal</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>MSI Academic Advising | <a href="https://sites.google.com/umich.edu/msiacademicadvising/student-support-resources">UMSI Academic Advising</a> | <p>© Copyrights <span id="year"></span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* update year */
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+</body>
+</html>

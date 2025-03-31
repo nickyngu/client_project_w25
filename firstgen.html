@@ -33,10 +33,10 @@
         </section>
         <section>
             <h2>AM I A FIRST-GENERATION COLLEGE STUDENT?</h2>
-            <div>At the University of Michigan, undergraduates and graduate students are considered first-generation college students if neither parent or guardian has completed a 4-year college or university degree.
-                This definition includes students with other family members (siblings, cousins, grandparents, etc.) who have completed a four-year degree. </div>
+            <p>At the University of Michigan, undergraduates and graduate students are considered first-generation college students if neither parent or guardian has completed a 4-year college or university degree.
+                This definition includes students with other family members (siblings, cousins, grandparents, etc.) who have completed a four-year degree. </p>
             <div>
-                <img src="images/MCOMMONS-WinterSemester2025-01.jpg" alt="Two students conversing">
+                <img src="images/MCOMMONS-WinterSemester2025-01.jpg" alt="Two students conversing" tabindex="0">
             </div>
         </section>
         <section>
@@ -46,15 +46,56 @@
                 Third floor of the Student Activities Building in the Office of Academic Multicultural Initiatives. <br>
                 Questions for the First-Gen Gateway Staff? Email us at firstgeninfo@umich.edu</p>
             <div>
-                <img src="images/MCOMMONS-WinterSemester2025-02.jpg" alt="Two students conversing at a table">
+                <img src="images/MCOMMONS-WinterSemester2025-02.jpg" alt="Two students conversing at a table" tabindex="0">
             </div>
         </section>
         </div>
+        <div class="full-screen" id="fullscreen-view" style="display: none;">
+            <img id="fullscreen-img">
+        </div>   
     </main>
     <footer>
-        <p>MSI Academic Advising | <a href="https://sites.google.com/umich.edu/msiacademicadvising/student-support-resources">UMSI Academic Advising </a></p>
+        <p>MSI Academic Advising | <a href="https://sites.google.com/umich.edu/msiacademicadvising/student-support-resources">UMSI Academic Advising</a> | <p>© Copyrights <span id="year"></span>. All rights reserved.</p>
     </footer>
     
+    <script>
+        /* full screen image upon click feature */
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => {
+                const fullscreenView = document.getElementById('fullscreen-view');
+                const fullscreenImg = document.getElementById('fullscreen-img');
+                fullscreenImg.src = img.src;
+                fullscreenView.style.display = 'flex';
+            });
+        });
+        /* enter key functionality for fullscreen img feature */
+        document.querySelectorAll('img[tabindex]').forEach(img => {
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // prevent scroll on space
+                    const fullscreenView = document.getElementById('fullscreen-view');
+                    const fullscreenImg = document.getElementById('fullscreen-img');
+                    fullscreenImg.src = img.src;
+                    fullscreenView.style.display = 'flex';
+                }
+            });
+        });
+        document.getElementById('fullscreen-view').addEventListener('click', () => {
+            document.getElementById('fullscreen-view').style.display = 'none';
+        });
+
+        /* escape key to exit fullscreen photo functionality for keyboard only */
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const fullscreenView = document.getElementById('fullscreen-view');
+                fullscreenView.style.display = 'none';
+            }
+        });
+
+        /* update year */
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+    </script>
 </body>
 
 </html>
